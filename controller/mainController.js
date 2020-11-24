@@ -15,7 +15,7 @@ const url =
 
 // Seems like a new client (which represents a connection to MongoDB) is created in each controller.
 // It's nice to share the same connection in multiple endpoints, but I prefer to have a better way to manage the shared connections.
-// For example, make a pool of connections somewhere. And make sure that, when the back-end stops, all the connections are closed.
+// For example, make a pool of connections somewhere. And make sure that, when the back-end stops, all of the connections are closed.
 // The second argument in MongoClient is an object for not getting the deprecation warnings from MongoDB
 const client = new MongoClient(url, {
   useNewUrlParser: true,
