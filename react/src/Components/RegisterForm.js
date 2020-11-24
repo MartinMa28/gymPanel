@@ -127,6 +127,9 @@ const RegisterFrom = () => {
             </p>
           )}
         </div>
+        // Is phone number related to the use cases? Could users sign up without a phone number?
+        // One more thing, the pattern for phone number doesn't show up in the UI. I have to check the code right here to know the actual phone number pattern.
+        // Doing sanity checks for the inputs in a form is good, but it's better to have some specific feedbacks.
         <div className="form-group">
           <input
             type="tel"
