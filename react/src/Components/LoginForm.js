@@ -7,10 +7,14 @@ const LoginForm = ({ userSetter, registerSetter }) => {
 
   const onLoginClicked = () => {
     const url = "./login";
+    // In React, useRef hook can be used to add a reference to a DOM element. https://reactjs.org/docs/hooks-reference.html#useref
+    // Then, you could find the current DOM element by doing this (fooRef.current) instead of using javascript's query selector.
+    // I think the main benefit of using useRef is to avoid sharing DOM element ID when the React component gets re-used multiple times.
     const body = {
       username: document.getElementById("username").value,
       password: document.getElementById("password").value,
     };
+    // NIT: Super nit-pick here, axios might not be necessary since we already have fetch API in ES6. 
     axios
       .post(url, body)
       .then((res) => {
