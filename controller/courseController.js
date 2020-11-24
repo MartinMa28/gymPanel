@@ -11,6 +11,11 @@ const url =
   "@testdb.qzr4t.mongodb.net/" +
   process.env.database +
   "?retryWrites=true&w=majority";
+
+// Seems like there is a client which represents a connection to MongoDB in every controller.
+// Reusing the connection is not wrong, but I prefer to have a better way to manage your connections. 
+// Maintaining a pool of connections somewhere is a good idea.
+// When the back-end application stops, make sure that all of connections are closed.
 const client = new MongoClient(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
